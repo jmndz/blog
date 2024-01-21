@@ -1,0 +1,35 @@
+<div class="modal fade" id="signInModal" aria-hidden="true" aria-labelledby="signInModalLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-5">
+        <h4 class="text-center pb-4">Sign Up</h4>
+
+        <%= form_with class:"col-11 col-lg-9 mx-auto" do |form| %>
+          <div class="mb-2">
+            <%= form.label :email, class: "form-label mb-1" %>
+            <%= form.email_field :email, class: "form-control rounded-pill", required: true %>
+          </div>
+
+          <div class="mb-4">
+            <label for="password" class="form-label mb-1">Password</label>
+            <div class="password">
+              <%= form.password_field :password, class: "form-control rounded-pill" %>
+            </div>
+          </div>
+
+          <div class="mb-5 mb-sm-4">
+            <%= form.submit "Log In", class: "btn btn-dark rounded-pill w-100" %>
+          </div>
+
+          <div class="text-center">
+            <span class="text-dark">Not yet registered?</span>
+            <%= link_to "Sign up", "#", class: "fw-bold text-dark", data: { bs_target: "#signUpModal", bs_toggle: "modal" } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

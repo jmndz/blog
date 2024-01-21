@@ -10,10 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <div class="d-flex gap-4 ms-auto">
-          <button class="btn btn-light bg-transparent fw-bold nav-link rounded-pill border-0" type="button">Sign In</button>
-          <button class="btn btn-dark rounded-pill" type="button">Sign Up</button>
+          <button class="btn btn-light bg-transparent fw-bold nav-link rounded-pill border-0" type="button" data-bs-target="#signInModal" data-bs-toggle="modal">Sign In</button>
+          <button class="btn btn-dark rounded-pill" type="button" data-bs-target="#signUpModal" data-bs-toggle="modal">Sign Up</button>
         </div>
       </div>
     </div>
   </nav>
+
+  <%= render "home/modal/sign_in" %>
+  <%= render "home/modal/sign_up" %>
 </div>

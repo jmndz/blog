@@ -1,0 +1,68 @@
+<div class="modal fade" id="signUpModal" aria-hidden="true" aria-labelledby="signUpModalLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pb-5">
+        <h4 class="text-center pb-4">Sign Up</h4>
+
+        <%= form_with class:"col-11 col-lg-9 mx-auto" do |form| %>
+          <div class="mb-2">
+            <%= form.label :first_name, class: "form-label mb-1" %>
+            <%= form.text_field :first_name, class: "form-control rounded-pill", required: true %>
+          </div>
+
+          <div class="mb-2">
+            <%= form.label :last_name, class: "form-label mb-1" %>
+            <%= form.text_field :last_name, class: "form-control rounded-pill", required: true %>
+          </div>
+
+          <div class="mb-2">
+            <%= form.label :email, class: "form-label mb-1" %>
+            <%= form.email_field :email, class: "form-control rounded-pill", required: true %>
+          </div>
+
+          <div class="mb-2">
+            <label for="password" class="form-label mb-1">Password</label>
+            <div class="password">
+              <%= form.password_field :password, class: "form-control rounded-pill" %>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="password_confirmation" class="form-label mb-1">Confirm Password</label>
+            <div class="password">
+              <%= form.password_field :password_confirmation, class: "form-control rounded-pill" %>
+            </div>
+          </div>
+
+          <div class="mb-4">      
+              <div class="form-check mb-2">
+                <%= form.label :agreed_to_terms_and_conditions, class: "form-check-label text-dark" do %>
+                  I agree to the Terms and Conditions
+                <% end %>
+                <%= form.check_box :agreed_to_terms_and_conditions, class: "form-check-input", required: true %>
+              </div>
+
+              <div class="form-check">
+                <%= form.label :agreed_to_privacy_and_policy, class: "form-check-label text-dark" do %>
+                  I agree to the Privacy Policy
+                <% end %>
+                <%= form.check_box :agreed_to_privacy_and_policy, class: "form-check-input", required: true %>
+              </div>
+            </div>
+
+          <div class="mb-4">
+            <%= form.submit "Register", class: "btn btn-dark rounded-pill w-100" %>
+          </div>
+
+          <div class="text-center">
+            <span class="text-dark">Already have an account?</span>
+            <%= link_to "Sign in", "#", class: "fw-bold text-dark", data: { bs_target: "#signInModal", bs_toggle: "modal" } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
