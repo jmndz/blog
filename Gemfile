@@ -70,3 +70,5 @@ group :test do
 end
 
 gem 'bootstrap', '~> 5.3.2'
+gem "devise", "~> 4.9"
+gem 'requestjs-rails'

@@ -97,19 +97,6 @@ table,
   font-size: $font-size-sm;
 }
 
-.nav-item {
-  font-weight: 700;
-}
-
-.nav-link {
-  color: $gray-600;
-  padding-bottom: 3px;
-}
-
-.nav-item .active {
-  border-bottom: 2px solid $black;
-}
-
 .form-check-input:checked {
   background-color: $black;
   border-color: $black;
