@@ -20,7 +20,7 @@ export default class extends Controller {
 
     if (data.success) {
       error.classList.add("d-none");
-      Turbo.visit(window.location.origin, { action: "replace" });
+      location.reload();
     } else {
       error.classList.remove("d-none");
     } 

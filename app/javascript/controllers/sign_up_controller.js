@@ -16,7 +16,7 @@ export default class extends Controller {
     const data = await response.json;
 
     if (data.success) {
-      Turbo.visit(window.location.origin, { action: "replace" });
+      location.reload();
     } else {
       console.log("error", data);
     } 

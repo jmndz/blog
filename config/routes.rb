@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   }
 
   resources :blogs
+  
+  namespace :blog do
+    resources :feedback, only: %i[create]
+  end
 end

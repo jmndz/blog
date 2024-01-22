@@ -1,26 +1,24 @@
-<div class="container pt-3 pt-lg-5">
-  <%= link_to root_path, class: "text-decoration-none text-dark my-4" do %>
-    <small><i class="bi bi-arrow-left me-1"></i> Back</small>
-  <% end %>
-
-  <h3 class="my-4">New Blog</h3>
-
-  <%= form_with model: @blog, url: blogs_path do |form| %>
-    <div class="col-12 col-lg-8 mb-3">
-      <label for="image" class="form-label mb-1 fw-semibold">Image <small class="text-muted">(optional)</small></label>
-      <%= form.file_field :image, accept: 'image/jpeg, image/png, image/jpg', class: "form-control" %>
-    </div>
-    <div class="col-12 col-lg-8 mb-3">
-      <label for="title" class="form-label mb-1 fw-semibold">Title</label>
-      <%= form.text_field :title, class: "form-control", required: true %>
-    </div>
-    <div class="col-12 col-lg-8 mb-3">
-      <%= form.label :content, class: "form-label mb-2 fw-semibold" %>
-      <%= form.rich_text_area :content, class: "form-control overflow-auto", style: "height: 360px;", required: true %>
-    </div>
-
-    <div class="col-12 footer pt-3">
-      <%= form.submit "Publish Blog", class: "btn btn-dark rounded-pill" %>
-    </div>
-  <% end %>
+<div class="bg-light">
+  <div class="container pt-3 pt-lg-5">
+    <%= link_to root_path, class: "text-decoration-none text-dark my-4" do %>
+      <small><i class="bi bi-arrow-left me-1"></i> Back</small>
+    <% end %>
+  
+    <h3 class="my-4">New Blog</h3>
+  
+    <%= form_with model: @blog, url: blogs_path do |form| %>
+      <div class="col-12 col-lg-8 mb-3">
+        <label for="title" class="form-label mb-1 fw-semibold">Title</label>
+        <%= form.text_field :title, class: "form-control", required: true %>
+      </div>
+      <div class="col-12 col-lg-8 mb-3">
+        <%= form.label :content, class: "form-label mb-2 fw-semibold" %>
+        <%= form.rich_text_area :content, class: "form-control overflow-auto", style: "height: 460px;", required: true %>
+      </div>
+  
+      <div class="col-12 footer pt-2 pt-lg-3 pb-4 pb-lg-5">
+        <%= form.submit "Publish Blog", class: "btn btn-dark rounded-pill" %>
+      </div>
+    <% end %>
+  </div>
 </div>
