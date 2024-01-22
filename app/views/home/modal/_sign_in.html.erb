@@ -13,15 +13,13 @@
           <div id="loginError" class="text-danger text-center pb-3 d-none">Invalid email or password</div>
 
           <div class="mb-2">
-            <%= form.label :email, class: "form-label mb-1" %>
+            <%= form.label :email, class: "form-label mb-1 fw-semibold" %>
             <%= form.email_field :email, class: "form-control rounded-pill", required: true %>
           </div>
 
           <div class="mb-4">
-            <label for="password" class="form-label mb-1">Password</label>
-            <div class="password">
-              <%= form.password_field :password, class: "form-control rounded-pill", required: true %>
-            </div>
+            <%= form.label :password, class: "form-label mb-1 fw-semibold" %>
+            <%= form.password_field :password, class: "form-control rounded-pill", required: true %>
 
             <small class="d-none d-sm-block text-end pt-1 pe-1">
               <%= link_to "Forgot password?", "#forgot-password", class: "text-dark text-decoration-none mt-2" %>

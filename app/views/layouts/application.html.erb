@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
 
     <%= favicon_link_tag "icon.png" %>
@@ -14,8 +14,12 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <div class="border-bottom border-secondary-subtle">
+      <%= render "layouts/navbar" %>
+    </div>
     <%= yield %>
-    <%= render "layouts/footer" %>
+    <div class="border-top border-secondary-subtle mt-4">
+      <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

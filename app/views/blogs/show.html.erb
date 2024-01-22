@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="col-12 col-lg-9 mx-auto">
+    <% if @blog.image.present? %>
+      <div class="w-100" style="height: 450px; background: url(<%= url_for(@blog.image) %>); background-size: cover; background-position: center;"></div>
+    <% end %>
+    <h2 class="mt-4 mt-lg-5"><%= @blog.title %></h2>
+    <div class="d-flex gap-2">
+      <div class="d-block"><%= image_tag "https://placehold.co/400x400", class: "img-fluid rounded-circle", size: "50x50", alt: "author" %></div>
+      <div class="d-flex flex-column justify-content-end">
+        <p class="mb-0"><%= @blog.user.full_name %></p>
+        <small class="text-muted"><%= @blog.created_at.strftime("%b %d, %Y") %></small>
+      </div>
+    </div>
+    
+    <hr class="my-4 my-lg-5">
+
+    <div class="" data-controller="video">
+      <%= parse_trix_content(@blog.content) %>
+    </div>
+
+    <hr class="my-4 my-lg-5">
+    
+    <div class="">
+      <%= form_with do |form| %>
+        <div class="col-12 col-lg-7 mb-4">
+          <div class="d-flex gap-2 align-items-center mb-3">
+            <div class="d-block"><%= image_tag "https://placehold.co/400x400", class: "img-fluid rounded-circle", size: "30x30", alt: "author" %></div>
+            <label for="feedback" class="form-label fw-semibold mb-0">Share your thoughts</label>
+          </div>
+          <%= form.text_area :feedback, class: "form-control", style: "height: 150px;" %>
+        </div>
+        <% if user_signed_in? %>
+          <%= form.submit "Send Feedback", class: "btn btn-dark rounded-pill px-5" %>
+        <% else %>
+          <%= link_to "Send Feedback", "javascript:void(0)", class: "btn btn-dark rounded-pill px-5", data: { bs_target: "#signInModal", bs_toggle: "modal" } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
