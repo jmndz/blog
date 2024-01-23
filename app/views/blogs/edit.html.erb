@@ -1,0 +1,11 @@
+<div class="bg-light">
+  <div class="container pt-3 pt-lg-5">
+    <%= link_to blog_path(@blog), class: "text-decoration-none text-dark my-4" do %>
+      <small><i class="bi bi-arrow-left me-1"></i> Back</small>
+    <% end %>
+  
+    <h3 class="my-4">Edit Blog</h3>
+  
+    <%= render "blogs/form", blog: @blog, form_path: blog_path(@blog) %>
+  </div>
+</div>
