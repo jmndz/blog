@@ -9,6 +9,9 @@
 
         <%= form_with model: User.new, url: user_registration_path, class:"col-11 col-lg-9 mx-auto", 
             data: { controller: "sign-up", action: "submit->sign-up#validateForm" } do |form| %>
+
+          <div id="signUpError" class="text-danger text-center pb-3 d-none">Something went wrong. Please try again</div>
+          
           <div class="mb-2">
             <%= form.label :first_name, class: "form-label mb-1 fw-semibold" %>
             <%= form.text_field :first_name, class: "form-control rounded-pill", required: true %>

@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render json: { success: true }
     else
       @user = resource
-      render json: { success: false, errors: resource.errors }
+      render json: { success: false }
     end
   end
 

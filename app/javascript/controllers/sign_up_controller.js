@@ -6,6 +6,7 @@ export default class extends Controller {
   async createAccount() {
     const form = this.element;
     const formData = new FormData(form);
+    const error = document.getElementById("signUpError");
 
     const request = new FetchRequest("post", form.action, { 
       body: formData,
@@ -16,9 +17,10 @@ export default class extends Controller {
     const data = await response.json;
 
     if (data.success) {
+      error.classList.add("d-none");
       location.reload();
     } else {
-      console.log("error", data);
+      error.classList.remove("d-none");
     } 
   }
 

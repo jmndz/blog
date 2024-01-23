@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
     if resource && resource.active_for_authentication?
       render json: { success: true }
     else
-      render json: { success: false, errors: resource }
+      render json: { success: false }
     end
   end
 
