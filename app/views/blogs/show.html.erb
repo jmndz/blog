@@ -4,7 +4,7 @@
       <h2 class="pt-4 pt-lg-5 pb-4"><%= @blog.title %></h2>
       <div class="d-flex justify-content-between">
         <div class="d-flex gap-2">
-          <div class="d-block"><%= image_tag "https://placehold.co/400x400", class: "img-fluid rounded-circle", size: "50x50", alt: "author" %></div>
+          <%= render "blogs/avatar", height: 50, width: 50, initial: @blog.user.first_name[0] %>
           <div class="d-flex flex-column justify-content-end">
             <p class="mb-0"><%= @blog.user.full_name %></p>
             <small class="text-muted"><%= @blog.created_at.strftime("%b %d, %Y") %></small>
@@ -36,10 +36,10 @@
       <hr class="my-4">
   
       <div class="pb-4" data-controller="feedback">
-        <%= form_with model: Feedback.new, url: blog_feedback_index_path(blog_id: @blog.id), data: { controller: "feedback", action: "submit->feedback#validateForm" } do |form| %>
+        <%= form_with model: Feedback.new, url: blog_feedback_index_path(blog_id: @blog.id), data: { controller: "feedback" } do |form| %>
           <div class="col-12 mb-4">
             <div class="d-flex gap-2 align-items-center mb-4">
-              <div class="d-block"><%= image_tag "https://placehold.co/400x400", class: "img-fluid rounded-circle", size: "30x30", alt: "author" %></div>
+              <%= render "blogs/avatar", height: 30, width: 30, initial: current_user.present? ? current_user.first_name[0].presence : " " %>
               <label for="body" class="form-label fw-semibold mb-0">Share your thoughts</label>
             </div>
             <%= form.text_area :body, class: "form-control", style: "height: 150px;" %>
