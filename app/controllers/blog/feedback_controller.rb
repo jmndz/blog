@@ -8,7 +8,7 @@ class Blog::FeedbackController < ApplicationController
       FeedbackMailer.feedback_email(email: @blog.user.email, title: @blog.title, body: @feedback.body).deliver_later
     end
 
-    redirect_back fallback_location: blog_path(@blog)
+    redirect_back fallback_location: blog_path(@blog), flash: { success: "Feedback sent successfully!" }
   end
 
   private

@@ -4,6 +4,7 @@ module TrixContentHelper
     "image/gif",
     "image/jpeg",
     "image/png",
+    "image/webp"
   ]
 
   VIDEO_TYPES = [

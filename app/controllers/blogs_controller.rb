@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
     @blog = BlogPost.new(blog_params.merge(user: current_user))
 
     if @blog.save
-      redirect_to blog_path(@blog)
+      redirect_to blog_path(@blog), flash: { success: "Blog published successfully!" }
     else
       redirect_back fallback_location: new_blog_path
     end

@@ -1,0 +1,24 @@
+<% if flash[:success] || flash[:notice] %>
+  <div class="alert alert-success alert-dismissable d-flex border-start-0 border-end-0 justify-content-between fade show rounded-0 mb-0" style="z-index: 11" role="alert">
+    <%= flash[:success] || flash[:notice] %>
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+<% if flash[:info] %>
+  <div class="alert alert-info alert-dismissable d-flex border-start-0 border-end-0 justify-content-between fade show rounded-0 mb-0" style="z-index: 11" role="alert">
+    <%= flash[:info] %>
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+<% if flash[:alert] || flash[:danger] || flash[:error] %>
+  <div class="alert alert-danger alert-dismissable d-flex border-start-0 border-end-0 justify-content-between fade show rounded-0 mb-0" style="z-index: 11" role="alert">
+    <%= flash[:alert] || flash[:danger] || flash[:error]&.to_s.html_safe %>
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+<% if flash[:warning] %>
+  <div class="alert alert-warning alert-dismissable d-flex border-start-0 border-end-0 justify-content-between align-items-center fade show rounded-0 mb-0" style="z-index: 11" role="alert">
+    <%= flash[:warning] %>
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
