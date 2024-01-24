@@ -23,7 +23,7 @@ A web application where users can share their stories and ideas with a global au
 ### Features
 - Sign up
 - Log in
-- CRUD Blog
+- CRUD Blog Posts
 - User Access Restriction
 - Feedback sent through email
 

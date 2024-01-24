@@ -12,7 +12,7 @@ RSpec.describe FeedbackMailer, type: :mailer do
     end
 
     it "renders the subject" do
-      expect(mail.subject).to eq("Feedback - '#{blog.title}'")
+      expect(mail.subject).to eq("Thoughts on Your Blog Post – User Feedback Inside!")
     end
 
     it "renders the receiver email" do
@@ -25,6 +25,10 @@ RSpec.describe FeedbackMailer, type: :mailer do
 
     it "assigns @body" do
       expect(mail.body.encoded).to match(feedback.body)
+    end
+
+    it "assigns @title" do
+      expect(mail.body.encoded).to include(blog.title)
     end
   end
 end
