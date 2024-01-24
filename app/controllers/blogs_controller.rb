@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_blog, except: [:new, :create]
+  before_action :user_access, only: [:edit, :update, :destroy]
 
   def new
     @blog = BlogPost.new
@@ -23,9 +24,6 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    if @blog.user != current_user 
-      redirect_to blog_path(@blog), flash: { error: "You are not authorized to access this page" }
-    end
   end
 
   def update
@@ -48,6 +46,12 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = BlogPost.find_by_id(params[:id])
+  end
+
+  def user_access
+    if @blog.user != current_user 
+      redirect_to blog_path(@blog), flash: { error: "You are not authorized to access this page" }
+    end
   end
 
   def blog_params

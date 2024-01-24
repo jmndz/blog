@@ -1,5 +1,6 @@
 class Blog::FeedbackController < ApplicationController
   before_action :authenticate_user!
+  
   def create
     @blog = BlogPost.find_by_id(params[:blog_id])
     @feedback = Feedback.new(feedback_params)
